@@ -27,10 +27,10 @@ diff = high - low;
 Console.WriteLine($"The difference between {low} and {high} is {diff}");
 
 // create an array to hold numbers between low and high
-int[] numbers = new int[diff + 1]; // size of the array
+List<int> numbers = new List<int>(); // size of the array
 for(int i = 0; i <= diff; i++) // i is the index
 {
-    numbers[i] = low + i;
+    numbers.Add(low + i);
 }
 
 Console.WriteLine("Numbers in the array:");
@@ -41,7 +41,7 @@ for (int i = 0; i <= diff; i++)
 
 // create a file named "number.txt" and write to it the numbers from the array in reverse order
 StreamWriter streamWriter = File.CreateText("numbers.txt"); // located in the same folder as the .exe file
-for(int i = numbers.Length - 1; i >= 0; i--)
+for(int i = numbers.Count - 1; i >= 0; i--)
 {
     streamWriter.WriteLine(numbers[i]);
 }
@@ -59,7 +59,7 @@ Console.WriteLine($"\nThe total of the numbers is {total}");
 
 //print prime numbers
 Console.WriteLine($"\nThe Prime numbers between {low} and {high} are:");
-for (int i = 0; i < numbers.Length; i++)
+for (int i = 0; i < numbers.Count; i++)
 {
     primenum = Utilities.PrimeNumber(numbers[i]);
     if (primenum)
